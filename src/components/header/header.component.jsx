@@ -5,8 +5,6 @@ import { ReactComponent as Logo } from "../../assets/crown.svg";
 import { auth } from "../../firebase/firebase.utils";
 
 const Header = ({ currentUser }) => {
-	console.log(currentUser);
-
 	return (
 		<div className="header">
 			<Link to="/" className="logo-container">
@@ -22,8 +20,9 @@ const Header = ({ currentUser }) => {
 				{currentUser ? (
 					<>
 						<div className="option">
-							<img src={currentUser.photoURL} alt="googleUser" />
-
+							{currentUser.photoURL ? (
+								<img src={currentUser.photoURL} alt="userPhoto" />
+							) : null}
 							{currentUser.displayName.split(" ")[0]}
 						</div>
 						<div className="option" onClick={() => auth.signOut()}>

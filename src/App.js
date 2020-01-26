@@ -27,8 +27,8 @@ export default class App extends Component {
 					this.setState({
 						currentUser: snapShot.data()
 					});
+					console.log(this.state);
 				});
-				console.log(this.state);
 			} else {
 				this.setState({
 					currentUser: userAuth
